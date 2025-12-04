@@ -1,0 +1,22 @@
+# Загальні виключення для Node.js
+/node_modules
+/dist
+/build
+/out
+
+# Файли конфігурації Node.js
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
+
+# Налаштування IDE
+.idea/
+.vscode/
+*.swp
+*.bak
+
+# Файли збірки/кешу
+.DS_Store
+Thumbs.db
