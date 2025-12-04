@@ -1,0 +1,131 @@
+/* ======================================================= /
+/ БАЗОВІ СТИЛІ СЕКЦІЇ ПОСИЛАНЬ /
+/ ======================================================= */
+.previous-events-section {
+    width: 80%;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.title-container {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.title-events {
+    font-size: 38px;
+    font-weight: 700;
+    color: #2F2E33;
+}
+.title-events::first-letter{
+    color: #7929e3;
+}
+
+.links-container {
+    width: 100%;
+    display: flex;
+    gap: 30px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+/* ======================================================= /
+/ СТИЛІ КАРТОК ПОСИЛАНЬ /
+/ ======================================================= */
+.event-link-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 30px;
+    flex: 1;
+    min-width: 300px;
+
+    border: 3px solid #7929e3;
+    border-radius: 12px;
+    text-decoration: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: #fcfcfc;
+    overflow: hidden;
+
+
+}
+
+.event-link-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 25px rgba(121, 41, 227, 0.4);
+}
+
+.link-title {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 10px;
+
+    /* Градієнтний текст */
+    background: linear-gradient(45deg, #7929e3 0%, #00b894 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+
+}
+
+.link-subtitle {
+    font-size: 16px;
+    color: #8a8a8a;
+    font-weight: 500;
+}
+
+/* СТИЛІ ІКОНОК OVERLAY /
+.icon-overlay {
+position: absolute;
+top: 50%;
+right: 20px;
+transform: translateY(-50%);
+opacity: 0.1; /* Прозорий водяний знак */
+/*}*/
+
+.link-icon {
+    width: 60px;
+    height: 60px;
+    color: #7929e3;
+}
+.youtube-card .link-icon {
+    fill: #FF0000;
+}
+.website-card .link-icon {
+    stroke: #7929e3;
+}
+
+/* ======================================================= /
+/ МЕДІА ЗАПИТИ (МОБІЛЬНА АДАПТАЦІЯ) /
+/ ======================================================= */
+
+@media screen and (max-width: 768px) {
+    .previous-events-section {
+        width: 95%;
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+    .links-container {
+        flex-direction: column;
+        gap: 20px;
+    }
+    .event-link-card {
+        min-width: 100%; /* Повна ширина на мобільних */
+        padding: 20px;
+    }
+    .link-title {
+        font-size: 24px;
+    }
+    .link-subtitle {
+        font-size: 14px;
+    }
+    .icon-overlay {
+        right: 15px;
+    }
+}

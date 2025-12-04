@@ -1,0 +1,204 @@
+.speakers{
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.speakers__title__container{
+    width: 80%;
+    cursor: pointer;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+.title__speakers{
+    font-size: 42px;
+    font-weight: 700;
+    color: #2F2E33;
+    display: flex;
+    align-items: center;
+}
+.title__speakers::first-letter{
+    color: #7929e3;
+}
+.accordion-icon {
+    font-size: 0.7em;
+    margin-left: 15px;
+    color: #7929e3;
+    transition: transform 0.3s ease;
+}
+
+.speakers__container{
+    width: 80%;
+
+    /* === ACCORDION БАЗОВИЙ СТАН (СХОВАНО) === */
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.7s ease-in-out, opacity 0.5s ease;
+
+    /* Флекс-стилі для контенту */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    margin-top: 0;
+    background-color: #ffffff;
+}
+.speakers__container.is-visible {
+    /* РОЗГОРНУТИЙ СТАН */
+    max-height: 5000px;
+    opacity: 1;
+    margin-top: 20px;
+}
+
+.speakers__content__img{
+    width: 100%;
+    height: 300px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+.speakers__content__txt{
+    width: 100%;
+    height: 300px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+    text-align: end;
+}
+
+/* ======================================================= */
+/* БАЗОВИЙ КОНТЕЙНЕР ФОТО З ОПТИМІЗОВАНИМИ BACKGROUND */
+/* ======================================================= */
+.speakers__img{
+    width: 300px;
+    height: 300px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: 2px solid #7929e3;
+    border-radius: 5px;
+}
+
+/* ======================================================= */
+/* СТИЛІ ТЕКСТУ (h3/h4) */
+/* ======================================================= */
+.speakers__txt{
+    margin-left: 10px;
+    margin-top: 5px;
+}
+.speakers__txt__end{
+    margin-right: 10px;
+    margin-bottom: 5px;
+}
+
+.speakers__txt h3, .speakers__txt__end h3, .speakers__txt__adaptive h3{
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 32px;
+    color: #2F2E33;
+}
+
+/* !!! ГРАДІЄНТНИЙ ТЕКСТ (Посади) !!! */
+.speakers__txt h4, .speakers__txt__end h4, .speakers__txt__adaptive h4 {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 28px;
+    /* Темний фіолетово-зелений градієнт */
+    background: linear-gradient(45deg, #7929e3 0%, #00b894 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: #4b4b4b; /* Резервний колір */
+}
+
+.speakers__txt__adaptive{
+    display: none;
+}
+
+
+/* ======================================================= */
+/* ВІДНОСНІ ШЛЯХИ ЗОБРАЖЕНЬ (url(../img/...)) */
+/* ======================================================= */
+
+/* ПОВЕРНУТО: Шляхи ../img/ для src/styles до src/img */
+
+.speakers__img1{ background-image: url(../img/photo_2024-11-08_18-45-46.jpg); }
+.speakers__img2{ background-image: url(../img/photo_2024-11-08_18-46-01.jpg); }
+.speakers__img3{ background-image: url(../img/photo_2024-11-08_19-19-09.jpg); }
+.speakers__img4{ background-image: url(../img/photo_2024-11-09_12-19-27.jpg); }
+.speakers__img5{ background-image: url(../img/photo_2024-11-08_19-18-58.jpg); }
+.speakers__img6{ background-image: url(../img/photo_2024-11-08_19-19-02.jpg); }
+.speakers__img7{ background-image: url(../img/photo_2024-11-08_19-19-06.jpg); }
+.speakers__img8{ background-image: url(../img/glib.jpg); }
+.speakers__img9{ background-image: url(../img/jaruna.jpg); background-position: center; }
+.speakers__img10{ background-image: url(../img/andriy.jpg); }
+.speakers__img11{ background-image: url(../img/kostiv.jpg); background-position: center; }
+.speakers__img12{ background-image: url(../img/demkiv.png); }
+.speakers__img13{ background-image: url(../img/laskovskiy.jpg); }
+.speakers__img14{ background-image: url(../img/tr.png); }
+.speakers__img15{ background-image: url(../img/shakhovska_natalia.jpg); background-position: center; }
+.speakers__img16{ background-image: url(../img/melnykova_natalia.jpg); background-position: center; }
+
+
+/* ======================================================= */
+/* МЕДІА ЗАПИТИ */
+/* ======================================================= */
+@media screen and (max-width: 425px){
+    .title__speakers{
+        font-size: 32px;
+    }
+    .speakers__title__container{
+        width: 95%;
+    }
+    .speakers__container{
+        width: 95%;
+        align-items: center;
+        justify-content: center;
+    }
+    .speakers__content__img, .speakers__content__txt{
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: auto;
+    }
+    .speakers__img{
+        height: 400px;
+        width: 250px;
+    }
+    .speakers__txt__end{
+        display: none;
+    }
+    .speakers__txt__adaptive{
+        width: 250px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+    .speakers__txt{
+        max-width: 250px;
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+        flex-direction: column;
+        margin-bottom: 20px;
+        margin-left: 0;
+    }
+    h3, .speakers__txt h3, .speakers__txt__adaptive h3{
+        font-size: 18px;
+        line-height: 24px;
+        text-align: start;
+    }
+    h4, .speakers__txt h4, .speakers__txt__adaptive h4{
+        font-size: 16px;
+        text-align: start;
+    }
+}
