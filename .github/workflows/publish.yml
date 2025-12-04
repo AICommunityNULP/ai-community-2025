@@ -1,0 +1,58 @@
+name: Artifact Publishing
+
+on:
+  push:
+    branches:
+      - prod
+      - dev
+jobs:
+  publish:
+    runs-on: arc-runner-set
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Prepare OCI dir
+        run: mkdir -p ./image-oci
+
+      - name: Set up Buildx (k8s)
+        uses: docker/setup-buildx-action@v3
+        with:
+          driver: kubernetes
+
+      - name: Build image to local oci layout
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          push: false
+          tags: my-app:ci
+          outputs: type=oci,dest=./image-oci/img
+
+      - name: Debug OCI layout
+        run: |
+          ls -l ./image-oci
+          tar tf ./image-oci/img | head -100
+
+      - name: Install skopeo
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y skopeo
+
+      - name: Push to Harbor (insecure)
+        env:
+          HARBOR_USER: ${{ secrets.HARBOR_USERNAME }}
+          HARBOR_PASS: ${{ secrets.HARBOR_PASSWORD }}
+        run: |
+          skopeo copy \
+            --dest-tls-verify=false \
+            --dest-creds "$HARBOR_USER:$HARBOR_PASS" \
+            oci-archive:./image-oci/img \
+            docker://mgmt-registry1.infra.bigtech/nulp-git/ai_community_front_end:${{ github.ref_name }}_latest
+
+      - name: Upload OCI layout on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: oci-layout
+          path: ./image-oci
