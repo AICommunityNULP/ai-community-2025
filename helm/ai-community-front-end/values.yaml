@@ -63,9 +63,9 @@ ingress:
     # kubernetes.io/ingress.class: nginx
     # kubernetes.io/tls-acme: "true"
   hosts:
-    - host: forge-dev.lpnu.ua
+    - host: forge.lpnu.ua
       paths:
-        - path: /
+        - path: /ai-community
           pathType: Prefix
   tls: []
   #  - secretName: chart-example-tls
