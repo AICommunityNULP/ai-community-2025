@@ -1,7 +1,74 @@
-import React from 'react'
-import "../styles/program.css"
+import React, { useState, useEffect } from 'react';
+import "../styles/program.css";
 
 const Program = () => {
+    // Стан для збереження поточного часу
+    const [currentTime, setCurrentTime] = useState(new Date());
+
+    // Оновлюємо час кожну хвилину
+    useEffect(() => {
+        const timer = setInterval(() => {
+            setCurrentTime(new Date());
+        }, 60000); // 60000 мс = 1 хвилина
+
+        return () => clearInterval(timer);
+    }, []);
+
+    // Функція перевірки: чи зараз цей час?
+    const isActiveSlot = (start, end) => {
+        const now = new Date();
+        const currentMinutes = now.getHours() * 60 + now.getMinutes();
+
+        const [startHour, startMin] = start.split(':').map(Number);
+        const [endHour, endMin] = end.split(':').map(Number);
+
+        const startTotal = startHour * 60 + startMin;
+        const endTotal = endHour * 60 + endMin;
+
+        return currentMinutes >= startTotal && currentMinutes < endTotal;
+    };
+
+    // Дані програми (винесені в масив для зручності)
+    const scheduleItems = [
+        { start: "10:00", end: "11:00", title: "Реєстрація / Кава брейк", desc: null },
+        { start: "11:00", end: "11:15", title: "Вітальне слово", desc: "Шаховська Наталя, Мельникова Наталя" },
+        { start: "11:15", end: "11:55", title: "Богдан Діденко", desc: null },
+        { start: "11:55", end: "12:00", title: "Перерва", desc: null },
+        { start: "12:00", end: "12:40", title: "Спікер 2", desc: "Сивоконь Олексій" },
+        { start: "12:40", end: "13:40", title: "Кава брейк / Ланч", desc: null },
+        {
+            start: "13:40", end: "14:10",
+            title: null, // Спеціальний випадок для складної верстки
+            customContent: (
+                <>
+                    <h4><span>Панельна дискусія 1: Як ваш АІ-проєкт оцінюють інвестори</span> <br />
+                        Модератор: **Модератор** <br />
+                        Учасники: Бойчук Андрій, Кицмей Тарас, Горовий Євген, Панін Юрій (Lapa), Костянтин Комаров (Uklon)
+                    </h4>
+                    <br />
+                    <h4><span>Панельна дискусія 2: Технічна тема (AI-Engineering Panel)</span> <br />
+                        Модератор: **Яцишин Володя** <br />
+                        Учасники: Засоба Олександр, Шамуратов Олексій, GlobalLogic / EPAM, Чирка Юрій
+                    </h4>
+                </>
+            )
+        },
+        { start: "14:10", end: "14:15", title: "Перерва", desc: null },
+        { start: "14:15", end: "14:35", title: "Звіт по БФК", desc: "Басистюк Олег" },
+        { start: "14:35", end: "14:50", title: "Нагородження стипендіатів", desc: "Мельникова Наталія" },
+        { start: "14:50", end: "15:20", title: "Кава брейк / Bingo", desc: null },
+        { start: "15:20", end: "16:00", title: "Спікер 3", desc: "Бойчук Андрій" },
+        { start: "16:00", end: "16:05", title: "Перерва", desc: null },
+        { start: "16:05", end: "16:30", title: "Аукціон для 25 бригади", desc: "Басистюк Олег" },
+        { start: "16:30", end: "16:35", title: "Перерва", desc: null },
+        {
+            start: "16:35", end: "17:05",
+            title: "Панельна дискусія 3: Етичні та соціальні аспекти впровадження AI в Україні",
+            desc: "Модератор: Мельникова Наталя. Учасники: Шаховська Наталя, Молчановський Олексій, Москаленко Андрій, Кицмей Тарас"
+        },
+        { start: "17:05", end: "17:15", title: "Завершення / Подяка", desc: "Мельникова Наталія" },
+    ];
+
     return (
         <section className='program' id='program'>
             <div className="program__title__container">
@@ -9,196 +76,34 @@ const Program = () => {
             </div>
             <div className="program__content__container">
                 <hr />
-                {/* 10:00-11:00 Реєстрація/ Кава брейк */}
-                <div className="program__txt__container">
-                    <div className="time__container">
-                        <h4>10:00 - 11:00</h4>
-                    </div>
-                    <div className="event__container">
-                        <h4><span>Реєстрація / Кава брейк</span></h4>
-                    </div>
-                </div>
-                <hr />
-                {/* 11:00-11:15 Вітальне слово */}
-                <div className="program__txt__container">
-                    <div className="time__container">
-                        <h4>11:00 - 11:15</h4>
-                    </div>
-                    <div className="event__container">
-                        <h4><span>Вітальне слово</span> <br />
-                            Шаховська Наталя, Мельникова Наталя
-                        </h4>
-                    </div>
-                </div>
-                <hr />
-                {/* 11:15-11:55 Спікер1? Богдан Діденко */}
-                <div className="program__txt__container">
-                    <div className="time__container">
-                        <h4>11:15 - 11:55</h4>
-                    </div>
-                    <div className="event__container">
-                        <h4><br /> Богдан Діденко</h4>
-                    </div>
-                </div>
-                <hr />
-                {/* 11:55-12:00 Перерва */}
-                <div className="program__txt__container">
-                    <div className="time__container">
-                        <h4>11:55 - 12:00</h4>
-                    </div>
-                    <div className="event__container">
-                        <h4><span>Перерва</span></h4>
-                    </div>
-                </div>
-                <hr />
-                {/* 12:00-12:40 Спікер2? Сивоконь Олексій */}
-                <div className="program__txt__container">
-                    <div className="time__container">
-                        <h4>12:00 - 12:40</h4>
-                    </div>
-                    <div className="event__container">
-                        <h4><span>Спікер 2</span> <br /> Сивоконь Олексій</h4>
-                    </div>
-                </div>
-                <hr />
-                {/* 12:40-13:40 Кава брейк /Ланч */}
-                <div className="program__txt__container">
-                    <div className="time__container">
-                        <h4>12:40 - 13:40</h4>
-                    </div>
-                    <div className="event__container">
-                        <h4><span>Кава брейк / Ланч</span>
-                        </h4>
-                    </div>
-                </div>
-                <hr />
-                {/* Панельні дискусії (13:40-14:10): розділені за темою */}
-                <div className="program__txt__container">
-                    <div className="time__container">
-                        <h4>13:40 - 14:10</h4>
-                    </div>
-                    <div className="event__container">
-                        <h4><span>Панельна дискусія 1: Як ваш АІ-проєкт оцінюють інвестори</span> <br />
-                            Модератор: **Модератор** <br />
-                            Учасники: Бойчук Андрій, Кицмей Тарас, Горовий Євген, Панін Юрій (Lapa), Костянтин Комаров (Uklon)
-                        </h4>
-                        <br />
-                        <h4><span>Панельна дискусія 2: Технічна тема (AI-Engineering Panel)</span> <br />
-                            Модератор: **Яцишин Володя** <br />
-                            Учасники: Засоба Олександр, Шамуратов Олексій, GlobalLogic / EPAM, Чирка Юрій
-                        </h4>
-                    </div>
-                </div>
-                <hr />
-                {/* 14:10-14:15 Перерва */}
-                <div className="program__txt__container">
-                    <div className="time__container">
-                        <h4>14:10 - 14:15</h4>
-                    </div>
-                    <div className="event__container">
-                        <h4><span>Перерва</span></h4>
-                    </div>
-                </div>
-                <hr />
-                {/* 14:15-14:35 Звіт по БФК та */}
-                <div className="program__txt__container">
-                    <div className="time__container">
-                        <h4>14:15 - 14:35</h4>
-                    </div>
-                    <div className="event__container">
-                        <h4><span>Звіт по БФК</span> <br /> Басистюк Олег</h4>
-                    </div>
-                </div>
-                <hr />
-                {/* 14:35-14:50 Нагородження стипендіатів */}
-                <div className="program__txt__container">
-                    <div className="time__container">
-                        <h4>14:35 - 14:50</h4>
-                    </div>
-                    <div className="event__container">
-                        <h4><span>Нагородження стипендіатів</span> <br /> Мельникова Наталія</h4>
-                    </div>
-                </div>
-                <hr />
-                {/* 14:50-15:20 Кава брейк Bingo */}
-                <div className="program__txt__container">
-                    <div className="time__container">
-                        <h4>14:50 - 15:20</h4>
-                    </div>
-                    <div className="event__container">
-                        <h4><span>Кава брейк / Bingo</span>
-                        </h4>
-                    </div>
-                </div>
-                <hr />
-                {/* 15:20-16:00 Спікер 3? Бойчук Андрій */}
-                <div className="program__txt__container">
-                    <div className="time__container">
-                        <h4>15:20 - 16:00</h4>
-                    </div>
-                    <div className="event__container">
-                        <h4><span>Спікер 3</span> <br /> Бойчук Андрій</h4>
-                    </div>
-                </div>
-                <hr />
-                {/* 16:00-16:05 Перерва */}
-                <div className="program__txt__container">
-                    <div className="time__container">
-                        <h4>16:00 - 16:05</h4>
-                    </div>
-                    <div className="event__container">
-                        <h4><span>Перерва</span>
-                        </h4>
-                    </div>
-                </div>
-                <hr />
-                {/* 16:05-16:30 Аукціон Для 25 бригади (Час трохи змінено на 16:05-16:30) */}
-                <div className="program__txt__container">
-                    <div className="time__container">
-                        <h4>16:05 - 16:30</h4>
-                    </div>
-                    <div className="event__container">
-                        <h4><span>Аукціон для 25 бригади</span> <br /> Басистюк Олег</h4>
-                    </div>
-                </div>
-                <hr />
-                {/* 16:30-16:35 Перерва */}
-                <div className="program__txt__container">
-                    <div className="time__container">
-                        <h4>16:30 - 16:35</h4>
-                    </div>
-                    <div className="event__container">
-                        <h4><span>Перерва</span></h4>
-                    </div>
-                </div>
-                <hr />
-                {/* 16:35-17:05 Панельна3 Етичні та соціальні аспекти впровадження AI в Україні */}
-                <div className="program__txt__container">
-                    <div className="time__container">
-                        <h4>16:35 - 17:05</h4>
-                    </div>
-                    <div className="event__container">
-                        <h4><span>Панельна дискусія 3: Етичні та соціальні аспекти впровадження AI в Україні</span> <br />
-                            Модератор: Мельникова Наталя <br />
-                            Учасники: Шаховська Наталя, Молчановський Олексій, Москаленко Андрій, Кицмей Тарас
-                        </h4>
-                    </div>
-                </div>
-                <hr />
-                {/* 17:05-17:15 Завершення/Подяка (Час трохи змінено на 17:05-17:15) */}
-                <div className="program__txt__container">
-                    <div className="time__container">
-                        <h4>17:05 - 17:15</h4>
-                    </div>
-                    <div className="event__container">
-                        <h4><span>Завершення / Подяка</span> <br />Мельникова Наталія
-                        </h4>
-                    </div>
-                </div>
-                <hr />
+                {scheduleItems.map((item, index) => {
+                    const active = isActiveSlot(item.start, item.end);
+
+                    return (
+                        <React.Fragment key={index}>
+                            {/* Додаємо клас active-slot, якщо час співпадає */}
+                            <div className={`program__txt__container ${active ? 'active-slot' : ''}`}>
+                                <div className="time__container">
+                                    <h4>{item.start} - {item.end}</h4>
+                                </div>
+                                <div className="event__container">
+                                    {item.customContent ? (
+                                        item.customContent
+                                    ) : (
+                                        <h4>
+                                            <span>{item.title}</span>
+                                            {item.desc && <><br /> {item.desc}</>}
+                                        </h4>
+                                    )}
+                                </div>
+                            </div>
+                            <hr />
+                        </React.Fragment>
+                    );
+                })}
             </div>
         </section>
-    )
+    );
 }
 
-export default Program
+export default Program;

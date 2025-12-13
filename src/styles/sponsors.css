@@ -97,9 +97,20 @@
     background-position: center;
 }
 
-/* Адаптив для менших екранів */
 @media screen and (max-width: 768px) {
     .sponsors {
-        height: auto; /* Змінюємо висоту для мобільних пристроїв */
+        height: auto;
+        padding-bottom: 30px; /* Трохи відступу знизу, раз крапок немає */
+    }
+
+    /* Ховаємо крапки навігації */
+    .slick-dots {
+        display: none !important;
+    }
+
+    /* Якщо треба зменшити відступи, які були під крапки */
+    .slider-container {
+        margin-bottom: 0;
+        padding-bottom: 0;
     }
 }

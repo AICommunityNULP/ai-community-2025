@@ -80,6 +80,26 @@ hr{
 .event__container a{
     color: #7929e3;
 }
+
+/* Стиль для активного слоту часу */
+.program__txt__container.active-slot {
+    background-color: rgba(121, 41, 227, 0.1); /* Легкий фіолетовий фон */
+    border-left: 5px solid #7929e3; /* Акцентна смужка зліва */
+    transition: all 0.3s ease; /* Плавна зміна */
+}
+
+.program__txt__container.active-slot .time__container h4,
+.program__txt__container.active-slot .event__container h4,
+.program__txt__container.active-slot .event__container span {
+    color: #7929e3; /* Фарбуємо текст у фіолетовий */
+}
+
+/* Невеликий фікс, щоб active-slot займав всю ширину гарно */
+.program__txt__container {
+    /* Додаємо padding, щоб текст не прилипав до active border */
+    padding: 0 10px;
+    box-sizing: border-box; /* Важливо для коректних відступів */
+}
 @media screen and (max-width: 425px){
     .time__container{
         width: 20%;

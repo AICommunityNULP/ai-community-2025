@@ -146,59 +146,131 @@
 .speakers__img15{ background-image: url(../img/shakhovska_natalia.jpg); background-position: center; }
 .speakers__img16{ background-image: url(../img/melnykova_natalia.jpg); background-position: center; }
 
+/* ======================================================= */
+/* АДАПТАЦІЯ ДЛЯ ПЛАНШЕТІВ ТА МОБІЛЬНИХ (до 900px) */
+/* Включає iPad (820px, 768px) та великі телефони */
+/* ======================================================= */
+@media screen and (max-width: 900px) {
+    .speakers {
+        min-height: auto; /* Прибираємо жорстку висоту екрану */
+        padding-bottom: 50px;
+    }
 
-/* ======================================================= */
-/* МЕДІА ЗАПИТИ */
-/* ======================================================= */
-@media screen and (max-width: 425px){
-    .title__speakers{
-        font-size: 32px;
+    .speakers__title__container {
+        width: 90%;
     }
-    .speakers__title__container{
-        width: 95%;
-    }
-    .speakers__container{
-        width: 95%;
-        align-items: center;
-        justify-content: center;
-    }
-    .speakers__content__img, .speakers__content__txt{
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
+
+    .speakers__container {
+        width: 90%;
+        /* Дозволяємо контейнеру рости по контенту */
         height: auto;
     }
-    .speakers__img{
-        height: 400px;
-        width: 250px;
+
+    .speakers__container.is-visible {
+        /* Обмежуємо висоту лише для анімації, але даємо запас */
+        max-height: 8000px;
     }
-    .speakers__txt__end{
+
+    /* --- Перемикаємо структуру в колонку --- */
+    .speakers__content__img,
+    .speakers__content__txt {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: auto; /* Висота залежить від контенту */
+        margin-bottom: 30px; /* Відступ між спікерами */
+    }
+
+    /* --- Фото спікерів --- */
+    .speakers__img {
+        width: 100%;           /* На всю ширину контейнера */
+        max-width: 350px;      /* Але не більше 350px */
+        height: auto;          /* Автоматична висота */
+        aspect-ratio: 1 / 1;   /* Робимо фото квадратним (або 3/4 якщо треба) */
+        margin-bottom: 20px;
+    }
+
+    /* --- Текст --- */
+    /* Ховаємо десктопний текст, який був збоку */
+    .speakers__txt__end,
+    .speakers__content__txt .speakers__txt {
         display: none;
     }
-    .speakers__txt__adaptive{
-        width: 250px;
+
+    /* Показуємо адаптивний текст під фото */
+    .speakers__txt__adaptive {
         display: flex;
         flex-direction: column;
-        align-items: flex-start;
+        align-items: flex-start; /* Вирівнювання по лівому краю */
         justify-content: center;
-        margin-bottom: 20px;
-    }
-    .speakers__txt{
-        max-width: 250px;
-        display: flex;
-        align-items: flex-start;
-        justify-content: flex-start;
-        flex-direction: column;
-        margin-bottom: 20px;
+        width: 100%;
+        max-width: 350px; /* Такої ж ширини як фото */
         margin-left: 0;
+        margin-top: 0;
     }
-    h3, .speakers__txt h3, .speakers__txt__adaptive h3{
+
+    /* Якщо у вас ліві блоки використовували .speakers__txt,
+       але на планшеті треба, щоб вони поводились як adaptive: */
+    .speakers__txt {
+        margin: 0;
+        max-width: 350px;
+        width: 100%;
+        align-items: flex-start;
+    }
+
+    /* --- Типографіка для планшетів --- */
+    .speakers__txt h3,
+    .speakers__txt__adaptive h3 {
+        font-size: 22px;       /* Трохи менше ніж на десктопі, але читабельно */
+        line-height: 28px;
+        text-align: left;
+    }
+
+    .speakers__txt h4,
+    .speakers__txt__adaptive h4 {
+        font-size: 18px;
+        text-align: left;
+        margin-top: 5px;
+    }
+}
+
+/* ======================================================= */
+/* АДАПТАЦІЯ ДЛЯ ТЕЛЕФОНІВ (до 480px) */
+/* ======================================================= */
+@media screen and (max-width: 480px) {
+    .title__speakers {
+        font-size: 32px;
+    }
+
+    .speakers__title__container {
+        width: 95%;
+    }
+
+    .speakers__container {
+        width: 95%;
+    }
+
+    /* Зменшуємо фото на маленьких екранах */
+    .speakers__img {
+        max-width: 280px;
+    }
+
+    .speakers__txt__adaptive,
+    .speakers__txt {
+        max-width: 280px;
+    }
+
+    /* Ще трохи зменшуємо шрифт для мобільних */
+    h3,
+    .speakers__txt h3,
+    .speakers__txt__adaptive h3 {
         font-size: 18px;
         line-height: 24px;
-        text-align: start;
     }
-    h4, .speakers__txt h4, .speakers__txt__adaptive h4{
+
+    h4,
+    .speakers__txt h4,
+    .speakers__txt__adaptive h4 {
         font-size: 16px;
-        text-align: start;
     }
 }
