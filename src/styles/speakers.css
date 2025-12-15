@@ -129,22 +129,22 @@
 
 /* ПОВЕРНУТО: Шляхи ../img/ для src/styles до src/img */
 
-.speakers__img1{ background-image: url(../img/photo_2024-11-08_18-45-46.jpg); }
-.speakers__img2{ background-image: url(../img/photo_2024-11-08_18-46-01.jpg); }
-.speakers__img3{ background-image: url(../img/photo_2024-11-08_19-19-09.jpg); }
-.speakers__img4{ background-image: url(../img/photo_2024-11-09_12-19-27.jpg); }
-.speakers__img5{ background-image: url(../img/photo_2024-11-08_19-18-58.jpg); }
-.speakers__img6{ background-image: url(../img/photo_2024-11-08_19-19-02.jpg); }
+.speakers__img1{ background-image: url(../img/Didenko.jpeg); }
+.speakers__img2{ background-image: url(../img/Zasoba_Evgen.png); }
+.speakers__img3{ background-image: url(../img/Boichuk.png); }
+.speakers__img4{ background-image: url(../img/Kytsmei.png); }
+.speakers__img5{ background-image: url(../img/Horovyi.png); }
+.speakers__img6{ background-image: url(../img/Panin.png); }
 .speakers__img7{ background-image: url(../img/photo_2024-11-08_19-19-06.jpg); }
-.speakers__img8{ background-image: url(../img/glib.jpg); }
-.speakers__img9{ background-image: url(../img/jaruna.jpg); background-position: center; }
-.speakers__img10{ background-image: url(../img/andriy.jpg); }
-.speakers__img11{ background-image: url(../img/kostiv.jpg); background-position: center; }
-.speakers__img12{ background-image: url(../img/demkiv.png); }
-.speakers__img13{ background-image: url(../img/laskovskiy.jpg); }
-.speakers__img14{ background-image: url(../img/tr.png); }
-.speakers__img15{ background-image: url(../img/shakhovska_natalia.jpg); background-position: center; }
-.speakers__img16{ background-image: url(../img/melnykova_natalia.jpg); background-position: center; }
+.speakers__img8{ background-image: url(../img/Iatsyshyn.jpg); }
+.speakers__img9{ background-image: url(../img/Shamuratov.jpg); background-position: center; }
+.speakers__img10{ background-image: url(../img/logo2.svg); }
+.speakers__img11{ background-image: url(../img/Chyrka.jpg); background-position: center; }
+.speakers__img12{ background-image: url(../img/Molchanovskyi.png); }
+.speakers__img13{ background-image: url(../img/Moskalenko.png); }
+.speakers__img14{ background-image: url(../img/Basystiuk.jpg); }
+.speakers__img15{ background-image: url(../img/Shakhovska.png); background-position: center; }
+.speakers__img16{ background-image: url(../img/Melnykova.jpg); background-position: center; }
 
 /* ======================================================= */
 /* АДАПТАЦІЯ ДЛЯ ПЛАНШЕТІВ ТА МОБІЛЬНИХ (до 900px) */
