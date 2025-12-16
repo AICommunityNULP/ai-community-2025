@@ -15,7 +15,7 @@ const Speakers = () => {
         { name: "Бойчук Андрій", title: "Спікер 3 (час 15:20-16:00)", type: "main", imgId: 3 },
         //{ name: "Кицмей Тарас", title: "Панель 1: Інвестори / Панель 3: Етика", type: "panel", imgId: 4 },
         { name: "Горовий Євген", title: "Панель 1: Інвестори", type: "panel", imgId: 5 },
-        { name: "Панін Юрій (Lapa)", title: "Панель 1: Інвестори", type: "panel", imgId: 6 },
+        { name: "Панів Юрій (Lapa)", title: "Панель 1: Інвестори", type: "panel", imgId: 6 },
         //{ name: "Костянтин Комаров (Uklon)", title: "Панель 1: Інвестори", type: "panel", imgId: 7 },
         { name: "Яцишин Володимир", title: "Модератор Панелі 2: AI-Engineering Panel", type: "panel", imgId: 8 },
         { name: "Засоба Євген", title: "Панель 2: AI-Engineering Panel", type: "panel", imgId: 2 },
