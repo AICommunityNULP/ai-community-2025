@@ -1,7 +1,8 @@
-html {
-    scroll-behavior: smooth; /* Зберігаємо для плавності */
-    scroll-snap-type: y mandatory; /* Увімкнути прив'язку по осі Y, 'mandatory' вимагає прив'язки до кожної точки */
-    overflow-y: scroll; /* Гарантуємо, що скрол є */
+html, body {
+    margin: 0;
+    padding: 0;
+    overscroll-behavior: none; /* Щоб не було "гумки" на Mac */
+    /* scroll-behavior: smooth;  <-- ЦЕ МАЄ БУТИ ВИДАЛЕНО або AUTO */
 }
 
 /* Якщо ви хочете, щоб *всі* елементи мали scroll-behavior, але це не завжди потрібно */
@@ -22,38 +23,74 @@ html {
     overflow-x: hidden;
 
 }
-.welcome__page{
+.welcome__page {
     width: 100%;
-    height: 101vh;
+    height: 100vh; /* Використовуємо 100vh, щоб займало весь екран */
+    position: relative;
+    overflow: hidden; /* Важливо, щоб картинка не вилазила за межі при паралаксі */
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    touch-action: none;
 }
-.header__block{
+
+/* Контейнер для фонів, щоб вони були позаду контенту */
+.welcome__backgrounds {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Відправляємо на задній план */
+}
+
+/* Спільні стилі для обох шарів */
+.bg-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 120%; /* Робимо трохи вищим (120%), щоб при паралаксі не було білої дірки знизу */
+    background-size: cover;
+    background-position: center;
+    will-change: transform, opacity; /* Оптимізація для браузера */
+}
+
+/* Картинка БЕЗ тексту (нижній шар) */
+.bg-no-text {
+    /* Вкажіть правильний шлях до картинки без тексту */
+    background-image: url(../img/bg__desktop__date_no_txt.jpg);
+}
+
+/* Картинка З текстом (верхній шар) */
+.bg-text {
+    background-image: url(../img/bg__desktop__date.jpg);
+    z-index: 1; /* Вона лежить поверх "безтекстової" */
+}
+
+.header__block {
     height: 1vh;
     width: 100%;
 }
-.welcome__page__img{
-    background-image: url(../img/bg__desktop__date.jpg);
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-}
-.scroll__btn {
-    position: fixed;
-    bottom: 50%;
-    right: 20px;
-    padding: 15px 20px;
-    font-size: 18px;
-    font-weight: 600;
-    background-color: #7929e3;
-    color: white;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    z-index: 1000;
+
+/* Медіа-запити для мобільних */
+@media screen and (max-width: 425px) {
+    /* Якщо для мобільного теж є версії з текстом і без, замініть їх тут */
+    .bg-text {
+        background-image: url(../img/bg__mobile__date.jpg);
+    }
+    .bg-no-text {
+        /* Додайте мобільну версію без тексту, якщо є, або ту ж саму */
+        background-image: url(../img/bg__mobile__date_no_txt.jpg);
+    }
+
+    .scroll__btn {
+        padding: 10px 15px;
+        font-size: 14px;
+        font-weight: 400;
+        bottom: 5%;
+    }
 }
 .scroll__btn:hover{
     background-color: #fff;

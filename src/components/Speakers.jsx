@@ -11,25 +11,25 @@ const Speakers = () => {
     const allParticipants = [
         // !!! ПРИМІТКА: Порядок imgId тут важливий і відповідає CSS-класам speakers__img[N] !!!
         { name: "Богдан Діденко", title: "Deep Learning Engineer, WebSpellChecker, член команди розробників Lapa LLM", type: "main", imgId: 1 },
-        { name: "Горовий Євген", title: "CEO, It-Jim", type: "panel", imgId: 5 },
-        { name: "Засоба Євген", title: "CTO, Somatic", type: "main", imgId: 2 },
+        { name: "Євген Горовий", title: "CEO, It-Jim", type: "panel", imgId: 5 },
+        { name: "Євген Засоба", title: "CTO, Somatic", type: "main", imgId: 2 },
 
-        { name: "Бойчук Андрій", title: "Head of AI, AI consultant, NDA", type: "main", imgId: 3 },
-        //{ name: "Кицмей Тарас", title: "Панель 1: Інвестори / Панель 3: Етика", type: "panel", imgId: 4 },
+        { name: "Андрій Бойчук", title: "Head of AI, AI consultant, NDA", type: "main", imgId: 3 },
+//{ name: "Тарас Кицмей", title: "Панель 1: Інвестори / Панель 3: Етика", type: "panel", imgId: 4 },
 
-        { name: "Панів Юрій (Lapa)", title: "Data Scientist, член команди розробників Lapa LLM", type: "panel", imgId: 6 },
-        //{ name: "Костянтин Комаров (Uklon)", title: "Панель 1: Інвестори", type: "panel", imgId: 10 },
-        { name: "Яцишин Володимир", title: "CEO, GeeksCode", type: "panel", imgId: 8 },
-        { name: "Засоба Євген", title: "CTO, Somatic", type: "panel", imgId: 2 },
-        { name: "Шамуратов Олексій", title: "Data engineer, Brainstack", type: "panel", imgId: 9 },
-        { name: "Красній Данило (IT-Jim)", title: "Visual GenAI TechLead, It-Jim", type: "panel", imgId: 7 },
-        //{ name: "Чирка Юрій", title: "Панель 2: AI-Engineering Panel", type: "panel", imgId: 11 },
-        { name: "Молчановський Олексій", title: "Перший заступник міського голови - заступник міського голови з економічного розвитку, в.о. заступника міського голови з питань житлово-комунального господарства", type: "panel", imgId: 12 },
-        { name: "Шаховська Наталя", title: 'Ректор Національного університету "Львівська політехніка"', type: "other", imgId: 15 },
-        { name: "Москаленко Андрій", title: "Андрій Москаленко - директор з інновацій, УкраЇнський католицький університет", type: "panel", imgId: 13 },
-        //{ name: "Анастасія Фролова", title: "Панель 3: Етичні та соціальні аспекти", type: "panel", imgId: 10 },
-        { name: "Мельникова Наталя", title: "Завідувач кафедри Систем Штучного Інтелекту", type: "other", imgId: 16 },
-        { name: "Басистюк Олег", title: "", type: "auction", imgId: 14},
+        { name: "Юрій Панів", title: "Data Scientist, член команди розробників Lapa LLM", type: "panel", imgId: 6 },
+//{ name: "Костянтин Комаров (Uklon)", title: "Панель 1: Інвестори", type: "panel", imgId: 10 },
+        { name: "Володимир Яцишин", title: "CEO, GeeksCode", type: "panel", imgId: 8 },
+        { name: "Євген Засоба", title: "CTO, Somatic", type: "panel", imgId: 2 },
+        { name: "Олексій Шамуратов", title: "Data engineer, Brainstack", type: "panel", imgId: 9 },
+        { name: "Данило Красній (IT-Jim)", title: "Visual GenAI TechLead, It-Jim", type: "panel", imgId: 7 },
+//{ name: "Юрій Чирка", title: "Панель 2: AI-Engineering Panel", type: "panel", imgId: 11 },
+        { name: "Олексій Молчановський", title: "Перший заступник міського голови - заступник міського голови з економічного розвитку, в.о. заступника міського голови з питань житлово-комунального господарства", type: "panel", imgId: 12 },
+        { name: "Наталя Шаховська", title: 'Ректор Національного університету "Львівська політехніка"', type: "other", imgId: 15 },
+        { name: "Андрій Москаленко", title: "Андрій Москаленко - директор з інновацій, УкраЇнський католицький університет", type: "panel", imgId: 13 },
+//{ name: "Анастасія Фролова", title: "Панель 3: Етичні та соціальні аспекти", type: "panel", imgId: 10 },
+        { name: "Наталя Мельникова", title: "Завідувач кафедри Систем Штучного Інтелекту", type: "other", imgId: 16 },
+        { name: "Олег Басистюк", title: "", type: "auction", imgId: 14},
     ];
 
     const mainSpeakers = allParticipants.filter(p => p.type === 'main');
