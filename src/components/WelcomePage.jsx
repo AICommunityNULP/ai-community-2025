@@ -6,9 +6,10 @@ const WelcomePage = () => {
     const bgTextRef = useRef(null);
     const isAnimating = useRef(false);
 
-    // --- 1. Easing: easeOutQuart ---
-    // Це "золота середина". Вона стартує плавно (не так різко, як Expo),
-    // але все ще має приємну інерцію в кінці.
+    // Зберігаємо координату початку дотику
+    const touchStartY = useRef(0);
+
+    // Easing: easeOutQuart (Плавний і елегантний)
     const easeOutQuart = (t, b, c, d) => {
         t /= d;
         t--;
@@ -43,7 +44,6 @@ const WelcomePage = () => {
     };
 
     useEffect(() => {
-        // --- Паралакс ---
         const handleParallax = () => {
             const y = window.scrollY;
             if (y > window.innerHeight + 50) return;
@@ -60,34 +60,65 @@ const WelcomePage = () => {
             }
         };
 
-        // --- Обробка скролу ---
+        // --- ЛОГІКА ДЛЯ МИШКИ (DESKTOP) ---
         const handleWheel = (e) => {
-            if (isAnimating.current) {
+            if (isAnimating.current) { e.preventDefault(); return; }
+
+            if (window.scrollY < 50 && e.deltaY > 0) {
                 e.preventDefault();
-                return;
-            }
-
-            // Ловимо тільки якщо ми на самому верху
-            if (window.scrollY < 50) {
-                if (e.deltaY > 0) { // Рух вниз
-                    e.preventDefault();
-                    isAnimating.current = true;
-
-                    // --- НАЛАШТУВАННЯ ПЛАВНОСТІ ---
-                    // 2000ms (2 секунди) - це дасть дуже довгий, кінематографічний проліт.
-                    // Якщо буде занадто повільно - спробуйте 1500.
-                    smoothScrollTo(window.innerHeight, 2000);
-                }
+                isAnimating.current = true;
+                smoothScrollTo(window.innerHeight, 2000);
             }
         };
 
-        // Слухачі
-        window.addEventListener('wheel', handleWheel, { passive: false });
+        // --- НОВА ЛОГІКА ДЛЯ ТЕЛЕФОНІВ (TOUCH) ---
+
+        // 1. Коли палець торкається екрану
+        const handleTouchStart = (e) => {
+            // Запам'ятовуємо Y координату першого пальця
+            touchStartY.current = e.touches[0].clientY;
+        };
+
+        // 2. Коли палець рухається по екрану
+        const handleTouchMove = (e) => {
+            if (isAnimating.current) {
+                e.preventDefault(); // Блокуємо, якщо анімація йде
+                return;
+            }
+
+            const currentY = e.touches[0].clientY;
+            // Різниця: якщо touchStartY > currentY, значить палець йде ВГОРУ (скрол ВНИЗ)
+            const diff = touchStartY.current - currentY;
+
+            // Перевіряємо умови:
+            // 1. Ми на самому верху сторінки
+            // 2. Свайп достатньо сильний (> 50px), щоб не реагувати на випадкові дотики
+            // 3. Напрямок свайпу - вниз (diff > 0)
+            if (window.scrollY < 10 && diff > 50) {
+                e.preventDefault(); // Блокуємо нативний скрол Safari/Chrome
+                isAnimating.current = true;
+
+                // Для мобільних можна трохи швидше (1500), бо екрани менші,
+                // але 2000 теж буде виглядати плавно
+                smoothScrollTo(window.innerHeight, 1500);
+            }
+        };
+
+        // Слухачі подій
         window.addEventListener('scroll', handleParallax, { passive: true });
 
+        // desktop
+        window.addEventListener('wheel', handleWheel, { passive: false });
+
+        // mobile (passive: false ОБОВ'ЯЗКОВО, щоб працював preventDefault)
+        window.addEventListener('touchstart', handleTouchStart, { passive: false });
+        window.addEventListener('touchmove', handleTouchMove, { passive: false });
+
         return () => {
-            window.removeEventListener('wheel', handleWheel);
             window.removeEventListener('scroll', handleParallax);
+            window.removeEventListener('wheel', handleWheel);
+            window.removeEventListener('touchstart', handleTouchStart);
+            window.removeEventListener('touchmove', handleTouchMove);
         };
     }, []);
 

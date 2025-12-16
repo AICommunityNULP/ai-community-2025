@@ -22,7 +22,7 @@ const Speakers = () => {
         { name: "Володимир Яцишин", title: "CEO, GeeksCode", type: "panel", imgId: 8 },
         { name: "Євген Засоба", title: "CTO, Somatic", type: "panel", imgId: 2 },
         { name: "Олексій Шамуратов", title: "Data engineer, Brainstack", type: "panel", imgId: 9 },
-        { name: "Данило Красній (IT-Jim)", title: "Visual GenAI TechLead, It-Jim", type: "panel", imgId: 7 },
+        { name: "Данило Красній", title: "Visual GenAI TechLead, It-Jim", type: "panel", imgId: 7 },
 //{ name: "Юрій Чирка", title: "Панель 2: AI-Engineering Panel", type: "panel", imgId: 11 },
         { name: "Олексій Молчановський", title: "Перший заступник міського голови - заступник міського голови з економічного розвитку, в.о. заступника міського голови з питань житлово-комунального господарства", type: "panel", imgId: 12 },
         { name: "Наталя Шаховська", title: 'Ректор Національного університету "Львівська політехніка"', type: "other", imgId: 15 },
