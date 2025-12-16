@@ -1,0 +1,74 @@
+html {
+    scroll-behavior: smooth; /* Зберігаємо для плавності */
+    scroll-snap-type: y mandatory; /* Увімкнути прив'язку по осі Y, 'mandatory' вимагає прив'язки до кожної точки */
+    overflow-y: scroll; /* Гарантуємо, що скрол є */
+}
+
+/* Якщо ви хочете, щоб *всі* елементи мали scroll-behavior, але це не завжди потрібно */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.App {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    font-family: "Montserrat", serif;
+    overflow-x: hidden;
+
+}
+.welcome__page{
+    width: 100%;
+    height: 101vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.header__block{
+    height: 1vh;
+    width: 100%;
+}
+.welcome__page__img{
+    background-image: url(../img/bg__desktop__date.jpg);
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+}
+.scroll__btn {
+    position: fixed;
+    bottom: 50%;
+    right: 20px;
+    padding: 15px 20px;
+    font-size: 18px;
+    font-weight: 600;
+    background-color: #7929e3;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+}
+.scroll__btn:hover{
+    background-color: #fff;
+    color: #7929e3;
+    border: 2px solid #7929e3;
+}
+@media screen  and (max-width: 425px) {
+    .welcome__page__img{
+     background-image: url(../img/bg__mobile__date.jpg);
+     background-position: center;
+    }
+    .scroll__btn{
+        padding: 10px 15px;
+        font-size: 14px;
+        font-weight: 400;
+        bottom: 5%;
+    }
+}

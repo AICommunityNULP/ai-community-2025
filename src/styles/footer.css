@@ -1,0 +1,161 @@
+footer{
+    width: 100%;
+    height: 30vh;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    /* === НОВИЙ СТИЛЬ ФУТЕРА === */
+    /* Глибокий фіолетовий як основа */
+    background: #10031E;
+    /* Додаємо радіальний градієнт, щоб імітувати свічення, використовуючи акцентні кольори (бірюзовий, фіолетовий) */
+    background: radial-gradient(circle at 100% 0%, rgba(121, 41, 227, 0.4) 0%, rgba(16, 3, 30, 1) 50%),
+    linear-gradient(90deg, #10031E 0%, #004D54 100%); /* #004D54 - глибокий бірюзовий */
+    background-blend-mode: multiply; /* Допомагає змішати кольори */
+    /* =========================== */
+
+    margin-top: 100px;
+}
+.footer__container{
+    width: 70%;
+    height: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.first__grp{
+    height: 65%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-direction: column;
+}
+.logo__footer{
+    width: 95px;
+    height: 61px;
+    /* Колір логотипу має бути білим або світлим на цьому фоні */
+    background-image: url(../img/logo2.svg);
+    background-size: cover;
+}
+.social__networks__grp{
+    width: 80px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+/* Переконайтеся, що іконки соціальних мереж мають світлий колір */
+.instagram{
+    background-image: url(../img/instagram.png);
+}
+.Facebook{
+    background-image: url(../img/facebook.png);
+}
+.linkedIn{
+    background-image: url(../img/linkedin.png);
+}
+.copyright{
+    font-size: 14px;
+    font-weight: 400;
+    color: #fff;
+}
+.social__networks{
+    width: 32px;
+    height: 32px;
+    background-size: cover;
+    cursor: pointer;
+}
+.contact__info{
+    height: 50%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-direction: column;
+}
+.title__contact{
+    font-size: 16px;
+    color: #fff; /* Білий текст для контрасту */
+    font-weight: 500;
+    /* Можна додати акцентний колір для title: color: #50E3C2; */
+}
+.txt__contact{
+    font-size: 14px;
+    font-weight: 400;
+    color: #fff; /* Білий текст для контрасту */
+}
+.footer__nav__menu{
+    height: 55%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-direction: column;
+}
+.nav__items__footer{
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+    position: relative;
+}
+.left, .nav__items__footer::before{
+    content: '';
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    /* Використовуємо акцентний колір для підкреслення, наприклад, бірюзовий */
+    background-color: #50E3C2;
+    transition: 0.2s;
+}
+.left, .nav__items__footer:hover::before{
+    width: 100%;
+}
+
+@media screen and (max-width: 768px) {
+    footer {
+        height: auto;
+        padding: 20px 0;
+    }
+
+    .footer__container {
+        width: 90%;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .first__grp, .contact__info, .footer__nav__menu {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .social__networks__grp {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .nav__items__footer {
+        font-size: 14px;
+        margin: 5px 0;
+    }
+    .title__contact{
+        margin-bottom: 5px;
+    }
+    .txt__contact{
+        margin-bottom: 5px;
+    }
+    .copyright {
+        margin-top: 10px;
+        text-align: center;
+    }
+    .logo__footer{
+        margin-bottom: 15px;
+    }
+}
