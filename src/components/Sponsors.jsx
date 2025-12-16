@@ -35,12 +35,8 @@ const Sponsors = () => {
         <div className="sponsors">
             <div className="slider-container">
                 <Slider {...settings}>
-                    <div><div className='sponsors__img sponsors__img1'></div></div>
                     <div><div className='sponsors__img sponsors__img2'></div></div>
-                    <div><div className='sponsors__img sponsors__img3'></div></div>
                     <div><div className='sponsors__img sponsors__img4'></div></div>
-                    <div><div className='sponsors__img sponsors__img5'></div></div>
-                    <div><div className='sponsors__img sponsors__img6'></div></div>
                     <div><div className='sponsors__img sponsors__img7'></div></div>
                     <div><div className='sponsors__img sponsors__img8'></div></div>
                     <div><div className='sponsors__img sponsors__img9'></div></div>
@@ -48,7 +44,6 @@ const Sponsors = () => {
                     <div><div className='sponsors__img sponsors__img11'></div></div>
                     <div><div className='sponsors__img sponsors__img12'></div></div>
                     <div><div className='sponsors__img sponsors__img13'></div></div>
-                    <div><div className='sponsors__img sponsors__img14'></div></div>
                 </Slider>
             </div>
         </div>

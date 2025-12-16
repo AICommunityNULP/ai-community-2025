@@ -10,24 +10,24 @@ const Speakers = () => {
     // Об'єднаний список усіх учасників для відображення з фото
     const allParticipants = [
         // !!! ПРИМІТКА: Порядок imgId тут важливий і відповідає CSS-класам speakers__img[N] !!!
-        { name: "Богдан Діденко", title: "Спікер 1 (час 11:15-11:55)", type: "main", imgId: 1 },
-        { name: "Засоба Євген", title: "Спікер 2 (час 12:00-12:40)", type: "main", imgId: 2 },
-        { name: "Бойчук Андрій", title: "Спікер 3 (час 15:20-16:00)", type: "main", imgId: 3 },
+        { name: "Богдан Діденко", title: "Deep Learning Engineer, WebSpellChecker, член команди розробників Lapa LLM", type: "main", imgId: 1 },
+        { name: "Засоба Євген", title: "CTO, Somatic", type: "main", imgId: 2 },
+        { name: "Бойчук Андрій", title: "Head of AI, AI consultant, NDA", type: "main", imgId: 3 },
         //{ name: "Кицмей Тарас", title: "Панель 1: Інвестори / Панель 3: Етика", type: "panel", imgId: 4 },
-        { name: "Горовий Євген", title: "Панель 1: Інвестори", type: "panel", imgId: 5 },
-        { name: "Панін Юрій (Lapa)", title: "Панель 1: Інвестори", type: "panel", imgId: 6 },
-        //{ name: "Костянтин Комаров (Uklon)", title: "Панель 1: Інвестори", type: "panel", imgId: 7 },
-        { name: "Яцишин Володимир", title: "Модератор Панелі 2: AI-Engineering Panel", type: "panel", imgId: 8 },
-        { name: "Засоба Євген", title: "Панель 2: AI-Engineering Panel", type: "panel", imgId: 2 },
-        { name: "Шамуратов Олексій", title: "Панель 2: AI-Engineering Panel", type: "panel", imgId: 9 },
-        { name: "Красній Данило (IT-Jim)", title: "Панель 2: AI-Engineering Panel", type: "panel", imgId: 10 },
+        { name: "Горовий Євген", title: "CEO, It-Jim", type: "panel", imgId: 5 },
+        { name: "Панін Юрій (Lapa)", title: "Data Scientist, член команди розробників Lapa LLM", type: "panel", imgId: 6 },
+        //{ name: "Костянтин Комаров (Uklon)", title: "Панель 1: Інвестори", type: "panel", imgId: 10 },
+        { name: "Яцишин Володимир", title: "CEO, GeeksCode", type: "panel", imgId: 8 },
+        { name: "Засоба Євген", title: "CTO, Somatic", type: "panel", imgId: 2 },
+        { name: "Шамуратов Олексій", title: "Data engineer, Brainstack_", type: "panel", imgId: 9 },
+        { name: "Красній Данило (IT-Jim)", title: "Visual GenAI TechLead, It-Jim", type: "panel", imgId: 7 },
         //{ name: "Чирка Юрій", title: "Панель 2: AI-Engineering Panel", type: "panel", imgId: 11 },
-        { name: "Молчановський Олексій", title: "Панель 3: Етичні та соціальні аспекти", type: "panel", imgId: 12 },
-        { name: "Москаленко Андрій", title: "Панель 3: Етичні та соціальні аспекти", type: "panel", imgId: 13 },
+        { name: "Молчановський Олексій", title: "Перший заступник міського голови - заступник міського голови з економічного розвитку, в.о. заступника міського голови з питань житлово-комунального господарства", type: "panel", imgId: 12 },
+        { name: "Москаленко Андрій", title: "Андрій Москаленко - директор з інновацій, УкраЇнський католицький університет", type: "panel", imgId: 13 },
         //{ name: "Анастасія Фролова", title: "Панель 3: Етичні та соціальні аспекти", type: "panel", imgId: 10 },
-        { name: "Басистюк Олег", title: "Звіт по БФК", type: "other", imgId: 14 },
-        { name: "Шаховська Наталя", title: "Вітальне слово / Учасник Панелі 3", type: "other", imgId: 15 },
-        { name: "Мельникова Наталя", title: "Вітальне слово / Модератор Панелі 3 / Нагородження", type: "other", imgId: 16 },
+        { name: "Басистюк Олег", title: "", type: "other", imgId: 14 },
+        { name: "Шаховська Наталя", title: 'Ректор Національного університету "Львівська політехніка"', type: "other", imgId: 15 },
+        { name: "Мельникова Наталя", title: "Завідувач кафедри Систем Штучного Інтелекту", type: "other", imgId: 16 },
     ];
 
     const mainSpeakers = allParticipants.filter(p => p.type === 'main');
@@ -85,7 +85,7 @@ const Speakers = () => {
             {/* 1. ОСНОВНІ СПІКЕРИ (Accordion Header) */}
             <div className="speakers__title__container" onClick={() => setIsMainVisible(!isMainVisible)}>
                 <h1 className="title__speakers">
-                    Основні спікери
+                    Запрошені спікери
                     <span className="accordion-icon">{isMainVisible ? '▲' : '▼'}</span>
                 </h1>
             </div>
@@ -99,7 +99,7 @@ const Speakers = () => {
             {/* 2. ПАНЕЛЬНІ ДИСКУСІЇ (Accordion Header) */}
             <div className="speakers__title__container" onClick={() => setIsPanelVisible(!isPanelVisible)}>
                 <h1 className="title__speakers">
-                    Учасники панельних дискусій
+                    Експерти панельних дискусій
                     <span className="accordion-icon">{isPanelVisible ? '▲' : '▼'}</span>
                 </h1>
             </div>
@@ -114,7 +114,7 @@ const Speakers = () => {
             {/* 3. ІНШІ УЧАСНИКИ (Accordion Header) */}
             <div className="speakers__title__container" onClick={() => setIsOtherVisible(!isOtherVisible)}>
                 <h1 className="title__speakers">
-                    Інші учасники програми
+                    Гості та ведучі події
                     <span className="accordion-icon">{isOtherVisible ? '▲' : '▼'}</span>
                 </h1>
             </div>
