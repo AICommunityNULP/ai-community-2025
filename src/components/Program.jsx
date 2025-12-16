@@ -5,7 +5,7 @@ const Program = () => {
     // Стан для збереження поточного часу
     const [currentTime, setCurrentTime] = useState(new Date());
 
-    // Оновлюємо час кожну хвилину
+    // Оновлюємо час кожну хвилину.
     useEffect(() => {
         const timer = setInterval(() => {
             setCurrentTime(new Date());
