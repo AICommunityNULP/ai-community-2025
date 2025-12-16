@@ -19,7 +19,7 @@ const Speakers = () => {
         //{ name: "Костянтин Комаров (Uklon)", title: "Панель 1: Інвестори", type: "panel", imgId: 10 },
         { name: "Яцишин Володимир", title: "CEO, GeeksCode", type: "panel", imgId: 8 },
         { name: "Засоба Євген", title: "CTO, Somatic", type: "panel", imgId: 2 },
-        { name: "Шамуратов Олексій", title: "Data engineer, Brainstack_", type: "panel", imgId: 9 },
+        { name: "Шамуратов Олексій", title: "Data engineer, Brainstack", type: "panel", imgId: 9 },
         { name: "Красній Данило (IT-Jim)", title: "Visual GenAI TechLead, It-Jim", type: "panel", imgId: 7 },
         //{ name: "Чирка Юрій", title: "Панель 2: AI-Engineering Panel", type: "panel", imgId: 11 },
         { name: "Молчановський Олексій", title: "Перший заступник міського голови - заступник міського голови з економічного розвитку, в.о. заступника міського голови з питань житлово-комунального господарства", type: "panel", imgId: 12 },
