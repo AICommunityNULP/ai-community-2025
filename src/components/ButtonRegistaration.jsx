@@ -3,7 +3,7 @@ import "../styles/app.css"
 
 const ButtonRegistaration = () => {
   return (
-   <a href="https://youtube.com/live/qNuBXoPHa3c?feature=share"> 
+   <a href="https://www.youtube.com/@ai-lviv">
          <button className='scroll__btn'>
             Трансляція 
         </button>
