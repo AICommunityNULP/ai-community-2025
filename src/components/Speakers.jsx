@@ -15,7 +15,7 @@ const Speakers = () => {
         { name: "Бойчук Андрій", title: "Head of AI, AI consultant, NDA", type: "main", imgId: 3 },
         //{ name: "Кицмей Тарас", title: "Панель 1: Інвестори / Панель 3: Етика", type: "panel", imgId: 4 },
         { name: "Горовий Євген", title: "CEO, It-Jim", type: "panel", imgId: 5 },
-        { name: "Панін Юрій (Lapa)", title: "Data Scientist, член команди розробників Lapa LLM", type: "panel", imgId: 6 },
+        { name: "Панів Юрій (Lapa)", title: "Data Scientist, член команди розробників Lapa LLM", type: "panel", imgId: 6 },
         //{ name: "Костянтин Комаров (Uklon)", title: "Панель 1: Інвестори", type: "panel", imgId: 10 },
         { name: "Яцишин Володимир", title: "CEO, GeeksCode", type: "panel", imgId: 8 },
         { name: "Засоба Євген", title: "CTO, Somatic", type: "panel", imgId: 2 },
