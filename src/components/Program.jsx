@@ -9,7 +9,7 @@ const Program = () => {
     useEffect(() => {
         const timer = setInterval(() => {
             setCurrentTime(new Date());
-        }, 60000); // 60000 мс = 1 хвилина
+        }, 60000); //  = 1 хвилина
 
         return () => clearInterval(timer);
     }, []);
