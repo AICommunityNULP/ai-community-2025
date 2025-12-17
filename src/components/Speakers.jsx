@@ -29,7 +29,8 @@ const Speakers = () => {
         { name: "Андрій Москаленко", title: "Перший заступник міського голови - заступник міського голови з економічного розвитку, в.о. заступника міського голови з питань житлово-комунального господарства ", type: "panel", imgId: 13 },
 //{ name: "Анастасія Фролова", title: "Панель 3: Етичні та соціальні аспекти", type: "panel", imgId: 10 },
         { name: "Наталя Мельникова", title: "Завідувач кафедри Систем Штучного Інтелекту", type: "other", imgId: 16 },
-        { name: "Олег Басистюк", title: "Старший викладач кафедри Систем Штучного Інтелекту", type: "auction", imgId: 14},
+        { name: "Благодійний аукціон", title: "Кожен лот - це не просто річ, а можливість зробити реальний внесок у підтримку Збройних сил України та допомогти тим, хто щодня виборює наше майбутнє.\n\n" +
+                "                Закликаємо всіх учасників долучитися, підтримати ініціативу та показати, що Al-спільнота — це не лише про технології, а й про відповідальність, єдність і дію", type: "auction", imgId: 14},
     ];
 
     const mainSpeakers = allParticipants.filter(p => p.type === 'main');
@@ -53,7 +54,7 @@ const Speakers = () => {
                 </div>
                 <div className="speakers__txt">
                     <h3>{person.name}</h3>
-                    <h4>{person.title}</h4>
+                    <h4 style={{ whiteSpace: 'pre-line' }}>{person.title}</h4>
                 </div>
             </>
         );
@@ -62,13 +63,13 @@ const Speakers = () => {
             <>
                 <div className="speakers__txt__end">
                     <h3>{person.name}</h3>
-                    <h4>{person.title}</h4>
+                    <h4 style={{ whiteSpace: 'pre-line' }}>{person.title}</h4>
                 </div>
                 <div className={imgClassName} style={photoStyle} aria-label={`Фото ${person.name}`}>
                 </div>
                 <div className="speakers__txt__adaptive">
                     <h3>{person.name}</h3>
-                    <h4>{person.title}</h4>
+                    <h4 style={{ whiteSpace: 'pre-line' }}>{person.title}</h4>
                 </div>
             </>
         );
@@ -126,7 +127,7 @@ const Speakers = () => {
             {/* 3. ІНШІ УЧАСНИКИ (Accordion Header) */}
             <div className="speakers__title__container" onClick={() => setIsOtherAuction(!isOtherAuction)}>
                 <h1 className="title__speakers">
-                    Ведучі Аукціону
+                    Аукціон
                     <span className="accordion-icon">{isOtherAuction ? '▲' : '▼'}</span>
                 </h1>
             </div>
