@@ -135,6 +135,15 @@ html, body {
         background-image: url(../img/bg__mobile__date.jpg);
         background-position: center;
     }
+    body {
+        /* Запобігає автоматичному масштабуванню тексту браузером */
+        -webkit-text-size-adjust: 100%;
+    }
+
+    /* Якщо Montserrat 400 виглядає занадто тонко на Retina, підніми його до 500 */
+    .schedule__item, p, span {
+        font-weight: 500;
+    }
     .scroll__btn{
         padding: 10px 15px;
         font-size: 14px;
