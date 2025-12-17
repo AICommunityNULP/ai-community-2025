@@ -73,6 +73,36 @@ html, body {
     height: 1vh;
     width: 100%;
 }
+/* Додай це до свого файлу app.css */
+
+.particles-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0; /* Частинки будуть над фоновим зображенням, але під текстом, якщо він у z-index: 1+ */
+    pointer-events: all; /* Дозволяє інтерактивність з мишкою */
+}
+
+.welcome__backgrounds {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-color: #050510; /* Темний фон на випадок затримки завантаження фото */
+}
+
+/* Переконайся, що шари з картинками мають правильний z-index */
+.bg-no-text {
+    z-index: -2; /* Найнижчий шар */
+}
+
+.bg-text {
+    z-index: -1; /* Між картинкою без тексту і частинками */
+}
 
 /* Медіа-запити для мобільних */
 @media screen and (max-width: 425px) {
@@ -99,8 +129,8 @@ html, body {
 }
 @media screen  and (max-width: 425px) {
     .welcome__page__img{
-     background-image: url(../img/bg__mobile__date.jpg);
-     background-position: center;
+        background-image: url(../img/bg__mobile__date.jpg);
+        background-position: center;
     }
     .scroll__btn{
         padding: 10px 15px;
@@ -109,3 +139,4 @@ html, body {
         bottom: 5%;
     }
 }
+
