@@ -1,13 +1,14 @@
-.speakers{
+.speakers {
     width: 100%;
     min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    padding: 40px 0; /* Додано відступ зверху та знизу */
 }
 
-.speakers__title__container{
+.speakers__title__container {
     width: 80%;
     cursor: pointer;
     padding-top: 20px;
@@ -16,16 +17,19 @@
     align-items: center;
     justify-content: flex-start;
 }
-.title__speakers{
+
+.title__speakers {
     font-size: 42px;
     font-weight: 700;
     color: #2F2E33;
     display: flex;
     align-items: center;
 }
-.title__speakers::first-letter{
+
+.title__speakers::first-letter {
     color: #7929e3;
 }
+
 .accordion-icon {
     font-size: 0.7em;
     margin-left: 15px;
@@ -33,53 +37,50 @@
     transition: transform 0.3s ease;
 }
 
-.speakers__container{
+.speakers__container {
     width: 80%;
-
-    /* === ACCORDION БАЗОВИЙ СТАН (СХОВАНО) === */
     max-height: 0;
     opacity: 0;
     overflow: hidden;
     transition: max-height 0.7s ease-in-out, opacity 0.5s ease;
-
-    /* Флекс-стилі для контенту */
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-
-    margin-top: 0;
     background-color: #ffffff;
 }
+
 .speakers__container.is-visible {
-    /* РОЗГОРНУТИЙ СТАН */
-    max-height: 5000px;
+    max-height: 10000px; /* Збільшено ліміт для великих списків */
     opacity: 1;
     margin-top: 20px;
 }
 
-.speakers__content__img{
+/* === ВИПРАВЛЕНО: Контейнери тепер мають min-height замість жорсткого height === */
+.speakers__content__img {
     width: 100%;
-    height: 300px;
+    min-height: 300px;
     display: flex;
-    align-items: flex-start;
+    align-items: center; /* Центрування тексту по вертикалі відносно фото */
     justify-content: flex-start;
-}
-.speakers__content__txt{
-    width: 100%;
-    height: 300px;
-    display: flex;
-    align-items: flex-start;
-    justify-content: flex-end;
-    text-align: end;
+    margin-bottom: 50px;
 }
 
-/* ======================================================= */
-/* БАЗОВИЙ КОНТЕЙНЕР ФОТО З ОПТИМІЗОВАНИМИ BACKGROUND */
-/* ======================================================= */
-.speakers__img{
+.speakers__content__txt {
+    width: 100%;
+    min-height: 300px;
+    display: flex;
+    align-items: center; /* Центрування тексту по вертикалі відносно фото */
+    justify-content: flex-end;
+    text-align: end;
+    margin-bottom: 50px;
+}
+
+/* === ВИПРАВЛЕНО: Додано flex-shrink: 0, щоб фото не деформувалося текстом === */
+.speakers__img {
     width: 300px;
     height: 300px;
+    flex-shrink: 0;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -87,48 +88,46 @@
     border-radius: 5px;
 }
 
-/* ======================================================= */
-/* СТИЛІ ТЕКСТУ (h3/h4) */
-/* ======================================================= */
-.speakers__txt{
-    margin-left: 10px;
-    margin-top: 5px;
-}
-.speakers__txt__end{
-    margin-right: 10px;
-    margin-bottom: 5px;
+/* === ВИПРАВЛЕНО: Додано гнучкість для текстових блоків === */
+.speakers__txt {
+    margin-left: 30px; /* Збільшено відступ від фото */
+    flex: 1;
+    max-width: 800px;
 }
 
-.speakers__txt h3, .speakers__txt__end h3, .speakers__txt__adaptive h3{
-    font-size: 24px;
+.speakers__txt__end {
+    margin-right: 30px; /* Збільшено відступ від фото */
+    flex: 1;
+    max-width: 800px;
+}
+
+.speakers__txt h3,
+.speakers__txt__end h3,
+.speakers__txt__adaptive h3 {
+    font-size: 28px; /* Трохи збільшено */
     font-weight: 700;
-    line-height: 32px;
+    line-height: 1.2;
     color: #2F2E33;
+    margin-bottom: 10px;
 }
 
-/* !!! ГРАДІЄНТНИЙ ТЕКСТ (Посади) !!! */
-.speakers__txt h4, .speakers__txt__end h4, .speakers__txt__adaptive h4 {
+.speakers__txt h4,
+.speakers__txt__end h4,
+.speakers__txt__adaptive h4 {
     font-size: 20px;
     font-weight: 600;
-    line-height: 28px;
-    /* Темний фіолетово-зелений градієнт */
+    line-height: 1.4;
     background: linear-gradient(45deg, #7929e3 0%, #00b894 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    color: #4b4b4b; /* Резервний колір */
+    color: #4b4b4b;
 }
 
-.speakers__txt__adaptive{
+.speakers__txt__adaptive {
     display: none;
 }
 
-
-/* ======================================================= */
-/* ВІДНОСНІ ШЛЯХИ ЗОБРАЖЕНЬ (url(../img/...)) */
-/* ======================================================= */
-
-/* ПОВЕРНУТО: Шляхи ../img/ для src/styles до src/img */
-
+/* Шляхи зображень */
 .speakers__img1{ background-image: url(../img/Didenko.jpeg); }
 .speakers__img2{ background-image: url(../img/Zasoba_Evgen.png); }
 .speakers__img3{ background-image: url(../img/Boichuk.png); }
@@ -137,22 +136,19 @@
 .speakers__img6{ background-image: url(../img/Panin.png); }
 .speakers__img7{ background-image: url(../img/Krasniy.jpg); }
 .speakers__img8{ background-image: url(../img/Iatsyshyn.jpg); }
-.speakers__img9{ background-image: url(../img/Shamuratov.jpg); background-position: center; }
+.speakers__img9{ background-image: url(../img/Shamuratov.jpg); }
 .speakers__img10{ background-image: url(../img/logo2.svg); }
-.speakers__img11{ background-image: url(../img/Chyrka.jpg); background-position: center; }
+.speakers__img11{ background-image: url(../img/Chyrka.jpg); }
 .speakers__img12{ background-image: url(../img/Molchanovskyi.png); }
 .speakers__img13{ background-image: url(../img/Moskalenko.png); }
-.speakers__img14{ background-image: url(../img/Basystiuk.jpg); }
-.speakers__img15{ background-image: url(../img/Shakhovska.png); background-position: center; }
-.speakers__img16{ background-image: url(../img/Melnykova.jpg); background-position: center; }
+.speakers__img14{ background-image: url(../img/Basystiuk1.jpg); }
+.speakers__img15{ background-image: url(../img/Shakhovska.png); }
+.speakers__img16{ background-image: url(../img/Melnykova.jpg); }
 
-/* ======================================================= */
-/* АДАПТАЦІЯ ДЛЯ ПЛАНШЕТІВ ТА МОБІЛЬНИХ (до 900px) */
-/* Включає iPad (820px, 768px) та великі телефони */
-/* ======================================================= */
+/* === АДАПТАЦІЯ ДЛЯ ПЛАНШЕТІВ ТА МОБІЛЬНИХ === */
 @media screen and (max-width: 900px) {
     .speakers {
-        min-height: auto; /* Прибираємо жорстку висоту екрану */
+        min-height: auto;
         padding-bottom: 50px;
     }
 
@@ -162,114 +158,70 @@
 
     .speakers__container {
         width: 90%;
-        /* Дозволяємо контейнеру рости по контенту */
-        height: auto;
     }
 
     .speakers__container.is-visible {
-        /* Обмежуємо висоту лише для анімації, але даємо запас */
-        max-height: 8000px;
+        max-height: 15000px;
     }
 
-    /* --- Перемикаємо структуру в колонку --- */
     .speakers__content__img,
     .speakers__content__txt {
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        height: auto; /* Висота залежить від контенту */
-        margin-bottom: 30px; /* Відступ між спікерами */
+        height: auto;
+        margin-bottom: 40px;
+        text-align: center; /* Центрування тексту на мобільних */
     }
 
-    /* --- Фото спікерів --- */
     .speakers__img {
-        width: 100%;           /* На всю ширину контейнера */
-        max-width: 350px;      /* Але не більше 350px */
-        height: auto;          /* Автоматична висота */
-        aspect-ratio: 1 / 1;   /* Робимо фото квадратним (або 3/4 якщо треба) */
+        width: 100%;
+        max-width: 350px;
+        height: auto;
+        aspect-ratio: 1 / 1;
         margin-bottom: 20px;
     }
 
-    /* --- Текст --- */
-    /* Ховаємо десктопний текст, який був збоку */
-    .speakers__txt__end,
-    .speakers__content__txt .speakers__txt {
-        display: none;
+    .speakers__txt,
+    .speakers__txt__end {
+        display: none; /* Ховаємо десктопні блоки */
     }
 
-    /* Показуємо адаптивний текст під фото */
     .speakers__txt__adaptive {
         display: flex;
         flex-direction: column;
-        align-items: flex-start; /* Вирівнювання по лівому краю */
+        align-items: center;
         justify-content: center;
         width: 100%;
-        max-width: 350px; /* Такої ж ширини як фото */
-        margin-left: 0;
-        margin-top: 0;
-    }
-
-    /* Якщо у вас ліві блоки використовували .speakers__txt,
-       але на планшеті треба, щоб вони поводились як adaptive: */
-    .speakers__txt {
-        margin: 0;
         max-width: 350px;
-        width: 100%;
-        align-items: flex-start;
+        margin: 0;
     }
 
-    /* --- Типографіка для планшетів --- */
-    .speakers__txt h3,
     .speakers__txt__adaptive h3 {
-        font-size: 22px;       /* Трохи менше ніж на десктопі, але читабельно */
-        line-height: 28px;
-        text-align: left;
+        font-size: 22px;
+        text-align: center;
     }
 
-    .speakers__txt h4,
     .speakers__txt__adaptive h4 {
         font-size: 18px;
-        text-align: left;
-        margin-top: 5px;
+        text-align: center;
     }
 }
 
-/* ======================================================= */
-/* АДАПТАЦІЯ ДЛЯ ТЕЛЕФОНІВ (до 480px) */
-/* ======================================================= */
 @media screen and (max-width: 480px) {
     .title__speakers {
         font-size: 32px;
     }
 
-    .speakers__title__container {
-        width: 95%;
-    }
-
-    .speakers__container {
-        width: 95%;
-    }
-
-    /* Зменшуємо фото на маленьких екранах */
-    .speakers__img {
+    .speakers__img,
+    .speakers__txt__adaptive {
         max-width: 280px;
     }
 
-    .speakers__txt__adaptive,
-    .speakers__txt {
-        max-width: 280px;
-    }
-
-    /* Ще трохи зменшуємо шрифт для мобільних */
-    h3,
-    .speakers__txt h3,
     .speakers__txt__adaptive h3 {
-        font-size: 18px;
-        line-height: 24px;
+        font-size: 20px;
     }
 
-    h4,
-    .speakers__txt h4,
     .speakers__txt__adaptive h4 {
         font-size: 16px;
     }
