@@ -44,6 +44,7 @@ const Sponsors = () => {
                     <div><div className='sponsors__img sponsors__img9'></div></div>
                     <div><div className='sponsors__img sponsors__img12'></div></div>
                     <div><div className='sponsors__img sponsors__img14'></div></div>
+                    <div><div className='sponsors__img sponsors__img1'></div></div>
                 </Slider>
             </div>
         </div>
