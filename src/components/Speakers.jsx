@@ -56,6 +56,11 @@ const Speakers = () => {
                     <h3>{person.name}</h3>
                     <h4 style={{ whiteSpace: 'pre-line' }}>{person.title}</h4>
                 </div>
+                {/* ДОДАНО: Адаптивний блок для мобілок, коли фото перше */}
+                <div className="speakers__txt__adaptive">
+                    <h3>{person.name}</h3>
+                    <h4 style={{ whiteSpace: 'pre-line' }}>{person.title}</h4>
+                </div>
             </>
         );
 

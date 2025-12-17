@@ -8,6 +8,13 @@ html, body {
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
 }
+@font-face {
+    font-family: 'Montserrat';
+    src: url('../fonts/montserrat-v31-cyrillic_latin-300.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
 /* Montserrat Regular (400) */
 @font-face {
     font-family: 'Montserrat';
@@ -16,7 +23,13 @@ html, body {
     font-style: normal;
     font-display: swap;
 }
-
+@font-face {
+    font-family: 'Montserrat';
+    src: url('../fonts/montserrat-v31-cyrillic_latin-600.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
 /* Montserrat Medium (500) */
 @font-face {
     font-family: 'Montserrat';
@@ -25,6 +38,7 @@ html, body {
     font-style: normal;
     font-display: swap;
 }
+
 
 /* Montserrat Bold (700) */
 @font-face {
