@@ -51,7 +51,7 @@ const FloatingDots = ({ offset = 0 }) => {
                 this.x = Math.random() * canvas.width;
                 this.y = Math.random() * canvas.height;
                 // Твої параметри швидкості
-                const speed = isMobile() ? 0.4 : 1;
+                const speed = isMobile() ? 0.8 : 1;
                 this.vx = (Math.random() - 0.5) * speed;
                 this.vy = (Math.random() - 0.5) * speed;
                 this.radius = Math.random() * (isMobile() ? 1.2 : 1.6) + 0.6;
