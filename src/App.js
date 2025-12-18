@@ -20,7 +20,6 @@ function App() {
         <PreviousEvents/>
       <Sponsors/>
       <Footer/>
-      <ButtonRegistaration/>
     </div>
   );
 }

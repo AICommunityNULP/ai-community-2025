@@ -11,7 +11,7 @@ html, body {
 @font-face {
     font-family: 'Montserrat';
     src: url('../fonts/montserrat-v31-cyrillic_latin-300.woff2') format('woff2');
-    font-weight: 700;
+    font-weight: 300;
     font-style: normal;
     font-display: swap;
 }
@@ -26,7 +26,7 @@ html, body {
 @font-face {
     font-family: 'Montserrat';
     src: url('../fonts/montserrat-v31-cyrillic_latin-600.woff2') format('woff2');
-    font-weight: 700;
+    font-weight: 600;
     font-style: normal;
     font-display: swap;
 }
@@ -149,6 +149,45 @@ html, body {
 .bg-text {
     z-index: -1; /* Між картинкою без тексту і частинками */
 }
+.registration-wrapper {
+    position: absolute;
+    bottom: 10%; /* Відступ від низу */
+    right: 8%;   /* Відступ справа */
+    z-index: 20;
+    pointer-events: auto; /* Щоб кнопка натискалася */
+}
+
+/* Стиль самої кнопки, якщо він ще не повний */
+.scroll__btn {
+    padding: 15px 35px;
+    background-color: #7929e3;
+    color: #ffffff;
+    border: 2px solid #7929e3;
+    border-radius: 8px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 20px rgba(121, 41, 227, 0.4);
+}
+
+.scroll__btn:hover {
+    background-color: transparent;
+    color: #7929e3;
+}
+
+/* Адаптація для мобільних пристроїв */
+@media screen and (max-width: 480px) {
+    .registration-wrapper {
+        right: 5%;
+        bottom: 12%;
+    }
+    .scroll__btn {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+}
 
 /* Медіа-запити для мобільних */
 @media screen and (max-width: 425px) {
@@ -168,11 +207,7 @@ html, body {
         bottom: 5%;
     }
 }
-.scroll__btn:hover{
-    background-color: #fff;
-    color: #7929e3;
-    border: 2px solid #7929e3;
-}
+
 @media screen  and (max-width: 425px) {
     .welcome__page__img{
         background-image: url(../img/bg__mobile__date.jpg);
@@ -187,11 +222,12 @@ html, body {
     .schedule__item, p, span {
         font-weight: 500;
     }
-    .scroll__btn{
-        padding: 10px 15px;
-        font-size: 14px;
-        font-weight: 400;
-        bottom: 5%;
-    }
+        .scroll__btn {
+            padding: 10px 15px;
+            font-size: 14px;
+            font-weight: 500; /* На айфонах краще 500, щоб не було тонко */
+            bottom: 30px;     /* Трохи вище на мобілках */
+        }
+
 }
 

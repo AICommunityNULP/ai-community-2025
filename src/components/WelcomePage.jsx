@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import FloatingDots from './FloatingDots';
+import ButtonRegistaration from './ButtonRegistaration'; // Імпортуємо вашу кнопку
 import '../styles/app.css';
 
 const WelcomePage = () => {
@@ -8,8 +9,9 @@ const WelcomePage = () => {
     const isAnimating = useRef(false);
     const touchStartY = useRef(0);
 
-    // Стан для передачі зміщення паралаксу в точки
+    // Стан для паралаксу та прозорості
     const [parallaxOffset, setParallaxOffset] = useState(0);
+    const [contentOpacity, setContentOpacity] = useState(1);
 
     const easeOutQuart = (t, b, c, d) => {
         t /= d; t--;
@@ -43,10 +45,11 @@ const WelcomePage = () => {
             if (y > window.innerHeight + 50) return;
 
             const offset = y * 0.5;
+            // Розрахунок прозорості: зникає повністю при скролі на 600px
             const opacity = Math.max(0, 1 - y / 600);
 
-            // Оновлюємо стан для канвасу
             setParallaxOffset(offset);
+            setContentOpacity(opacity);
 
             if (bgNoTextRef.current) {
                 bgNoTextRef.current.style.transform = `translate3d(0, ${offset}px, 0)`;
@@ -94,7 +97,6 @@ const WelcomePage = () => {
     return (
         <section className='welcome__page'>
             <div className="welcome__backgrounds">
-                {/* Точки тепер отримують актуальний offset */}
                 <FloatingDots offset={parallaxOffset} />
 
                 <div
@@ -107,6 +109,18 @@ const WelcomePage = () => {
                     className="bg-layer bg-text"
                     style={{ willChange: 'transform, opacity' }}
                 ></div>
+            </div>
+
+            {/* Контейнер для кнопки з адаптивною прозорістю */}
+            <div
+                className="registration-wrapper"
+                style={{
+                    opacity: contentOpacity,
+                    visibility: contentOpacity <= 0 ? 'hidden' : 'visible',
+                    transition: 'opacity 0.1s linear'
+                }}
+            >
+                <ButtonRegistaration />
             </div>
 
             <div className="header__block"></div>
