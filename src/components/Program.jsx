@@ -92,7 +92,17 @@ const Program = () => {
                                     ) : (
                                         <h4>
                                             <span>{item.title}</span>
-                                            {item.desc && <><br /> {item.desc}</>}
+                                            {item.desc && (
+                                                <>
+                                                    <br />
+                                                    {item.desc.split('\n').map((line, i) => (
+                                                        <React.Fragment key={i}>
+                                                            {line}
+                                                            {i !== item.desc.split('\n').length - 1 && <br />}
+                                                        </React.Fragment>
+                                                    ))}
+                                                </>
+                                            )}
                                         </h4>
                                     )}
                                 </div>
